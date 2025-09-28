@@ -2,47 +2,106 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student Profile</title>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .buttons {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .buttons button {
+      margin: 5px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .buttons button:hover {
+      background: #45a049;
+    }
+    .section {
+      display: none;
+      padding: 10px;
+    }
+    .active {
+      display: block;
+    }
+    .profile-photo {
+      display: block;
+      margin: 0 auto 15px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #4CAF50;
+    }
+  </style>
 </head>
 <body>
-  <header>
+  <div class="container">
     <h1>Student Profile</h1>
-  </header>
 
-  <nav>
-    <a href="#profile" >Profile</a>
-    <a href="#academics">Academics</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <div class="buttons">
+      <button onclick="showSection('profile')">Profile</button>
+      <button onclick="showSection('academics')">Academics</button>
+      <button onclick="showSection('contact')">Contact</button>
+    </div>
 
-  <section id="profile" class="card">
-    <img src="profile.jpg.png" alt="Student Photo" class="profile-img">
-    <h2>Akib Aftab</h2>
-    <p>Student ID: 240103010</p>
-    <p>Course: Computer Science with specialization in A.I and Data Science</p>
-    <p>Year: 2nd</p>
-  </section>
+    <!-- Profile Section -->
+    <div id="profile" class="section active">
+      <h2>Profile</h2>
+      <!-- Student Photo -->
+      <img src="profile.jpg.png" alt="Student Photo" class="profile-photo">
+      <p><strong>Name:</strong> Akib Aftab</p>
+      <p><strong>Age:</strong> 20</p>
+      <p><strong>Course:</strong> Computer Science with specialization in A.I and Data Science</p>
+    </div>
 
-  <section id="academics" class="card">
-    <h3>Academic Details</h3>
-    <ul>
-      <li>Mathematics</li>
-      <li>Programming in C++</li>
-      <li>Web Development</li>
-      <li>Signal Processing</li>
-    </ul>
-  </section>
+    <!-- Academics Section -->
+    <div id="academics" class="section">
+      <h2>Academics</h2>
+      <p><strong>Year:</strong> 2nd Year</p>
+      <p><strong>CGPA:</strong> 8.53</p>
+      <p><strong>Subjects:</strong> Data Structures, c++, c , Web Technology</p>
+    </div>
 
-  <section id="contact" class="card">
-    <h3>Contact Information</h3>
-    <p>Email: akib240103010@iiitmanipur.ac.in</p>
-    <p>Phone: 7302246510</p>
-    <p>Address: Indian Institute of Information Technology,Manipur</p>
-  </section>
+    <!-- Contact Section -->
+    <div id="contact" class="section">
+      <h2>Contact</h2>
+      <p><strong>Email:</strong> akib240103010@iiitmanipur.ac.in</p>
+      <p><strong>Phone:</strong> +91 7302246510</p>
+      <p><strong>Address:</strong> New Delhi, India</p>
+    </div>
+  </div>
 
-  
-
+  <script>
+    function showSection(sectionId) {
+      let sections = document.querySelectorAll('.section');
+      sections.forEach(sec => sec.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+    }
+  </script>
 </body>
 </html>
+
+ 
